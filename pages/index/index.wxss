@@ -17,5 +17,11 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 20px;
+}
+
+.my-btn {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
 }
