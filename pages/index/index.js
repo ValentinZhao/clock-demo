@@ -5,7 +5,11 @@ Page({
   data: {
     motto: 'Hello',
     name: '',
-    userInfo: {}
+    userInfo: {},
+    myLocation: {
+      longitude: '',
+      latitude: ''
+    }
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,6 +21,22 @@ Page({
     this.setData({
       name: this.data.userInfo.nickName
     })
+  },
+  locatemyself: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          myLocation: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          }
+        })
+      }
+    })
+    
   },
   onLoad: function () {
     console.log('onLoad')

@@ -7,7 +7,13 @@
   <view class="usermotto">
     <text class="user-motto">Hello {{name}}!</text>
   </view>
+  <view class="usermotto">
+    <text class="user-motto">你的位置是： {{myLocation.longitude}}, {{myLocation.latitude}}!</text>
+  </view>
   <view class="my-btn">
     <button class="welcome-btn" type="primary" bindtap="showGreet">Welcome!</button>
+  </view>
+  <view class="my-btn">
+    <button class="welcome-btn" type="primary" bindtap="locatemyself">得到我的位置</button>
   </view>
 </view>

@@ -1,0 +1,14 @@
+<!--login.wxml-->
+<view class="container">
+  <view class="input-wrapper">
+    <view class="username">
+      <input type="number" maxlength="11" placeholder="手机号" bindinput="bindInputUser" id="login_usr"/>
+    </view>
+    <view class="password">
+      <input type="password" placeholder="登录密码" bindinput="bindInputPsw" id="login_psw"/>
+    </view>
+  </view>
+  <view class="login_btn">
+    <button class="btn_login" type="primary" bindtap="userLogin">登录</button>
+  </view>
+</view>
