@@ -16,6 +16,18 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+function json2Form(json) {
+  var str = [];
+  for (var p in json) {
+    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(json[p]));
+  }
+  return str.join("&");
+}  
+
+var base_url = 'https://testhr.yigewang.com.cn/'
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  base_url: base_url,
+  json2Form: json2Form
 }
