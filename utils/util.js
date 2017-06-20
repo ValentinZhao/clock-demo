@@ -24,10 +24,16 @@ function json2Form(json) {
   return str.join("&");
 }  
 
-var base_url = 'https://testhr.yigewang.com.cn/'
+var base_url = 'http://192.168.7.118/hrcloudj/'
+
+var _USERNAME = '';
+
+var _COMPANYLIST = [];
 
 module.exports = {
   formatTime: formatTime,
   base_url: base_url,
-  json2Form: json2Form
+  json2Form: json2Form,
+  _USERNAME: _USERNAME,
+  _COMPANYLIST: _COMPANYLIST
 }
