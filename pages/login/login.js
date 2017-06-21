@@ -48,28 +48,15 @@ Page({
       success: function (res) {
         console.log(res)
         if(res.data.companyList){
-          // wx.request({
-          //   url: common.base_url + 'init/app/login',
-          //   method: 'POST',
-          //   data: common.json2Form({
-          //     json: JSON.stringify({
-          //       'password': password,
-          //       'userId': username
-          //     })
-          //   }),
-          //   header: {
-          //     'content-type': 'application/x-www-form-urlencoded'
-          //   },
-          //   success: (res) => {
-          //     wx.hideNavigationBarLoading()
-          //     console.log('第二次请求 ==>' + res.data)
-          //   },
-          //   fail: (res) => {
-          //     wx.hideNavigationBarLoading()
-          //     console.log(res)
-          //   }
-          // })
-          
+          var mUrl = '../selectCompany/selectCompany?companyList='
+          var companyList = res.data.companyList
+          companyList.forEach((v, i, a) => {
+            a[i] = JSON.stringify(v)
+          })
+          wx.navigateTo({
+            url: mUrl + companyList,
+          })
+          return
         }
         wx.hideNavigationBarLoading()
         wx.switchTab({
@@ -81,6 +68,33 @@ Page({
         console.log(res.header)
         wx.hideNavigationBarLoading()
       }
+    })
+  },
+  companyLogin: () => {
+    var mUrl = '../selectCompany/selectCompany?companyList='
+    // var companyList = res.data.companyList
+    var companyList = [
+      {
+        USER_NAME: '赵子亮',
+        COMPANY_NAME: 'ZTE',
+        COMPANY_CODE: 'T020067'
+      },
+      {
+        USER_NAME: '赵子亮',
+        COMPANY_NAME: 'TENCENT',
+        COMPANY_CODE: 'T020037'
+      },
+      {
+        USER_NAME: '赵子亮',
+        COMPANY_NAME: 'BAIDU',
+        COMPANY_CODE: 'T020034'
+      }
+    ]
+    companyList.forEach((v, i, a) => {
+      a[i] = JSON.stringify(v)
+    })
+    wx.navigateTo({
+      url: mUrl + companyList
     })
   }
   })

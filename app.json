@@ -1,10 +1,13 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/selectCompany/selectCompany",
+    
+    
     "pages/index/index",
     "pages/logs/logs",
-    "pages/details/details",
-    "pages/selectCompany/selectCompany"
+    "pages/details/details"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
