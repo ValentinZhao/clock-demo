@@ -5,28 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    radioItems: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' },
-    ],
     companyLists: [],
+    choosenCompanyInfo: [],
     hidden: false
   },
   radioChange: function (e) {
-    var checked = e.detail.value
-    var changed = {}
-    for (var i = 0; i < this.data.radioItems.length; i++) {
-      if (checked.indexOf(this.data.radioItems[i].name) !== -1) {
-        changed['radioItems[' + i + '].checked'] = true
-      } else {
-        changed['radioItems[' + i + '].checked'] = false
-      }
-    }
-    this.setData(changed)
+    var companyCode = e.detail.value
+    // var changed = {}
+    // for (var i = 0; i < this.data.companyLists.length; i++) {
+    //   if (checked.indexOf(this.data.companyLists[i].name) !== -1) {
+    //     changed['companyLists[' + i + '].checked'] = true
+    //   } else {
+    //     changed['companyLists[' + i + '].checked'] = false
+    //   }
+    // }
+    this.setData({
+      choosenCompanyCode: companyCode
+    })
+    console.log(e.detail.value)
   },
 
   /**

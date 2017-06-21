@@ -1,9 +1,11 @@
-<view class="section section_gap">
-<view class="section__title">公司列表</view>
-<radio-group class="group" bindchange="radioChange">
-  <view class="label-2" wx:for="{{companyList}}">
-    <radio id="{{item.COMPANY_CODE}}" value="{{item.COMPANY_NAME}}"></radio>
-    <label class="label-2__text" for="{{item.COMPANY_NAME}}"><text>{{item.COMPANY_NAME}}</text></label>
-  </view>
-</radio-group>
+<view class="container">
+  <view class="welcomeTitle">欢迎你，{{companyList[0].USER_NAME}}</view>
+  <radio-group class="group" bindchange="radioChange">
+  <view class="title" id="companyTitle">公司列表</view>
+    <view class="label-2" wx:for="{{companyList}}">
+      <radio id="{{item.COMPANY_CODE}}" value="{{[item.COMPANY_NAME, item.ID]}}"></radio>
+      <label class="label-2__text" for="{{item.COMPANY_NAME}}"><text>{{item.COMPANY_NAME}}</text></label>
+    </view>
+  </radio-group>
+  <button class="login_btn" type="primary" bindtap="userLogin">登录</button>
 </view>

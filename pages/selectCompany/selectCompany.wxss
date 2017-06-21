@@ -1,9 +1,31 @@
+.group {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.title {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+#companyTitle {
+  font-size: 30px;
+  color: #1E90FF;
+}
+.welcomeTitle {
+  margin-bottom: 20px;
+}
+.login_btn {
+  margin: 0 auto;
+  width: 90%;
+}
 .label-1, .label-2{
     margin-bottom: 15px;
 }
 .label-1__text, .label-2__text {
     display: inline-block;
     vertical-align: middle;
+    margin-left: 10px;
 }
 
 .label-1__icon {

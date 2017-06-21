@@ -48,7 +48,7 @@ Page({
       success: function (res) {
         console.log(res)
         if(res.data.ok){
-          if (res.data.companyList) {
+          if (res.data.companyList) { // 若该登陆人有多个公司信息，则进入公司选择页面
             var mUrl = '../selectCompany/selectCompany?companyList='
             var companyList = res.data.companyList
             companyList.forEach((v, i, a) => {
@@ -60,7 +60,7 @@ Page({
             return
           }
           wx.hideNavigationBarLoading()
-          wx.switchTab({
+          wx.switchTab({ // 登陆人只有一个公司信息则直接进入打卡页面
             url: '../index/index',
           })
         } else {
