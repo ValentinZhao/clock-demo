@@ -47,26 +47,40 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        if(res.data.companyList){
-          var mUrl = '../selectCompany/selectCompany?companyList='
-          var companyList = res.data.companyList
-          companyList.forEach((v, i, a) => {
-            a[i] = JSON.stringify(v)
+        if(res.data.ok){
+          if (res.data.companyList) {
+            var mUrl = '../selectCompany/selectCompany?companyList='
+            var companyList = res.data.companyList
+            companyList.forEach((v, i, a) => {
+              a[i] = JSON.stringify(v)
+            })
+            wx.navigateTo({
+              url: mUrl + companyList,
+            })
+            return
+          }
+          wx.hideNavigationBarLoading()
+          wx.switchTab({
+            url: '../index/index',
           })
-          wx.navigateTo({
-            url: mUrl + companyList,
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'loading',
+            duration: 2000
           })
+          wx.hideNavigationBarLoading()
           return
         }
-        wx.hideNavigationBarLoading()
-        wx.switchTab({
-          url: '../index/index',
-        })
       },
       fail: (res) => {
-        console.log(res.errMsg)
-        console.log(res.header)
+        wx.showToast({
+          title: res.errMsg,
+          icon: 'loading',
+          duration: 2000
+        })
         wx.hideNavigationBarLoading()
+        return
       }
     })
   },

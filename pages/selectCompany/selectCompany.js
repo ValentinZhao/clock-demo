@@ -5,14 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    checkboxItems: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本', checked: 'true' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' },
-    ],
     radioItems: [
       { name: 'USA', value: '美国' },
       { name: 'CHN', value: '中国', checked: 'true' },
@@ -21,7 +13,7 @@ Page({
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' },
     ],
-    companyLists: common._COMPANYLIST,
+    companyLists: [],
     hidden: false
   },
   radioChange: function (e) {
@@ -51,10 +43,9 @@ Page({
     companyList.forEach((v,i,a) => {
       a[i] = JSON.parse(v)
     })
-    // options.companyList.forEach((v,i,a) => {
-    //   a[i] = JSON.stringify(v)
-    // })
-    console.log(options.companyList)
     console.log(companyList)
+    this.setData({
+      companyList: companyList
+    })
   }
 })

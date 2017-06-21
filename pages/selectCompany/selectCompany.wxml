@@ -1,9 +1,9 @@
 <view class="section section_gap">
-<view class="section__title">label用for标识表单组件</view>
+<view class="section__title">公司列表</view>
 <radio-group class="group" bindchange="radioChange">
-  <view class="label-2" wx:for="{{radioItems}}">
-    <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
-    <label class="label-2__text" for="{{item.name}}"><text>{{item.name}}</text></label>
+  <view class="label-2" wx:for="{{companyList}}">
+    <radio id="{{item.COMPANY_CODE}}" value="{{item.COMPANY_NAME}}"></radio>
+    <label class="label-2__text" for="{{item.COMPANY_NAME}}"><text>{{item.COMPANY_NAME}}</text></label>
   </view>
 </radio-group>
 </view>
