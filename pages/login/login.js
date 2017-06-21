@@ -28,7 +28,7 @@ Page({
     if(!username || !password){
       wx.showToast({
         title: '输入不能为空',
-        icon: 'loading',
+        image: '../images/err.jpg',
         duration: 2000
       })
       wx.hideNavigationBarLoading()
@@ -54,8 +54,10 @@ Page({
             companyList.forEach((v, i, a) => {
               a[i] = JSON.stringify(v)
             })
+            mUrl += companyList
+            mUrl += '&userId=' + username + '&password=' + password
             wx.navigateTo({
-              url: mUrl + companyList,
+              url: mUrl
             })
             return
           }
@@ -66,7 +68,7 @@ Page({
         } else {
           wx.showToast({
             title: res.data.message,
-            icon: 'loading',
+            image: '../images/err.jpg',
             duration: 2000
           })
           wx.hideNavigationBarLoading()
@@ -76,7 +78,7 @@ Page({
       fail: (res) => {
         wx.showToast({
           title: res.errMsg,
-          icon: 'loading',
+          image: '../images/err.jpg',
           duration: 2000
         })
         wx.hideNavigationBarLoading()

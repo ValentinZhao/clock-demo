@@ -3,13 +3,13 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello',
     name: '',
     userInfo: {},
     myLocation: {
       longitude: '',
       latitude: ''
-    }
+    },
+    currentTime: ''
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,13 +17,9 @@ Page({
       url: '../logs/logs'
     })
   },
-  showGreet: function() {
-    this.setData({
-      name: this.data.userInfo.nickName
-    })
-  },
   locatemyself: function () {
     var that = this;
+    var date = new Date()
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
@@ -32,7 +28,8 @@ Page({
           myLocation: {
             longitude: res.longitude,
             latitude: res.latitude
-          }
+          },
+          currentTime: date.toLocaleDateString()
         })
       }
     })

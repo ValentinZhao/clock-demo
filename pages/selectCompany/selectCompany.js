@@ -1,33 +1,19 @@
 var common = require('../../utils/util.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    username: '',
+    password: '',
     companyLists: [],
-    choosenCompanyInfo: [],
+    choosenCompanyInfo: '',
     hidden: false
   },
   radioChange: function (e) {
     var companyCode = e.detail.value
-    // var changed = {}
-    // for (var i = 0; i < this.data.companyLists.length; i++) {
-    //   if (checked.indexOf(this.data.companyLists[i].name) !== -1) {
-    //     changed['companyLists[' + i + '].checked'] = true
-    //   } else {
-    //     changed['companyLists[' + i + '].checked'] = false
-    //   }
-    // }
     this.setData({
-      choosenCompanyCode: companyCode
+      choosenCompanyInfo: companyCode
     })
     console.log(e.detail.value)
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var companyList = options.companyList.split('},')
     for(let i = 0; i < companyList.length; i++){
@@ -41,7 +27,50 @@ Page({
     })
     console.log(companyList)
     this.setData({
-      companyList: companyList
+      companyList: companyList,
+      username: options.userId,
+      password: options.password
+    })
+  },
+  userLogin: function () {
+    var companyInfo = this.data.choosenCompanyInfo.split(',')
+    var username = this.data.username
+    var password = this.data.password
+    wx.request({
+      url: common.base_url + 'init/app/login',
+      method: 'POST',
+      data: common.json2Form({
+        json: JSON.stringify({
+          'userId': username,
+          'password': password,
+          'companyCode': companyInfo[0],
+          'selectUser': companyInfo[1]
+        })
+      }),
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: (res) => {
+        console.log(res)
+        if(res.data.ok){
+          wx.switchTab({
+            url: '../index/index'
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            image: '../images/err.jpg',
+            duration: 2000
+          })
+        }
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: res.data.message,
+          image: '../images/err.jpg',
+          duration: 2000
+        })
+      }
     })
   }
 })

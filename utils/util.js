@@ -24,7 +24,7 @@ function json2Form(json) {
   return str.join("&");
 }  
 
-var base_url = 'http://192.168.7.118/hrcloudj/'
+var base_url = 'http://192.168.7.83:8080/hrcloudj/'
 
 var _USERNAME = '';
 
