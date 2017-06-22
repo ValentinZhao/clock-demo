@@ -53,6 +53,9 @@ Page({
       success: (res) => {
         console.log(res)
         if(res.data.ok){
+          if (!wx.getStorageSync('userInfo')){
+            wx.setStorageSync('userInfo', res.data)
+          }
           wx.switchTab({
             url: '../index/index'
           })

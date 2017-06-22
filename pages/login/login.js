@@ -6,6 +6,11 @@ Page({
     password: ''
   },
   onLoad: function (options) {
+    if(wx.getStorageSync('userInfo')){
+      wx.switchTab({
+        url: '../index/index'
+      })
+    }
     wx.setNavigationBarTitle({
       title: '登录',
     })
@@ -62,6 +67,9 @@ Page({
             return
           }
           wx.hideNavigationBarLoading()
+          if (!wx.getStorageSync('userInfo')) {
+            wx.setStorageSync('userInfo', res.data)
+          }
           wx.switchTab({ // 登陆人只有一个公司信息则直接进入打卡页面
             url: '../index/index',
           })
@@ -84,33 +92,6 @@ Page({
         wx.hideNavigationBarLoading()
         return
       }
-    })
-  },
-  companyLogin: () => {
-    var mUrl = '../selectCompany/selectCompany?companyList='
-    // var companyList = res.data.companyList
-    var companyList = [
-      {
-        USER_NAME: '赵子亮',
-        COMPANY_NAME: 'ZTE',
-        COMPANY_CODE: 'T020067'
-      },
-      {
-        USER_NAME: '赵子亮',
-        COMPANY_NAME: 'TENCENT',
-        COMPANY_CODE: 'T020037'
-      },
-      {
-        USER_NAME: '赵子亮',
-        COMPANY_NAME: 'BAIDU',
-        COMPANY_CODE: 'T020034'
-      }
-    ]
-    companyList.forEach((v, i, a) => {
-      a[i] = JSON.stringify(v)
-    })
-    wx.navigateTo({
-      url: mUrl + companyList
     })
   }
   })
