@@ -24,16 +24,29 @@ function json2Form(json) {
   return str.join("&");
 }  
 
+function gps2baidu (lat, long, callback) {
+  
+  wx.request({
+    url: 'http://api.map.baidu.com/geoconv/v1/?coords=' + long
+    + ',' + lat + '&from=1&to=5&ak=EfFhe5vnkGwGGc0fKwkSvmOL2aczFyZ6',
+    success: (res) => {
+      if(typeof callback == 'function'){
+        callback(res)
+      }
+    },
+    fail: (res) => {
+      if (typeof callback == 'function') {
+        callback(res)
+      }
+    }
+  })
+}
 var base_url = 'http://192.168.7.83:8080/hrcloudj/'
 
-var _USERNAME = '';
-
-var _COMPANYLIST = [];
 
 module.exports = {
   formatTime: formatTime,
   base_url: base_url,
   json2Form: json2Form,
-  _USERNAME: _USERNAME,
-  _COMPANYLIST: _COMPANYLIST
+  gps2baidu: gps2baidu
 }
