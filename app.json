@@ -27,7 +27,7 @@
       },
       {
         "pagePath": "pages/details/details",
-        "text": "其他",
+        "text": "我",
         "iconPath": "pages/images/tabBar/bussiness.png",
         "selectedIconPath": "pages/images/tabBar/business-HL.png"
       }

@@ -50,27 +50,6 @@ Page({
   clockIn: function () {
     var that = this;
     var date = new Date()
-    // wx.getLocation({
-    //   type: 'wgs84',
-    //   success: function (res) {
-    //     that.setData({
-    //       myLocation: {
-    //         longitude: res.longitude,
-    //         latitude: res.latitude
-    //       },
-    //       markers: [{
-    //         latitude: res.latitude,
-    //         longitude: res.longitude
-    //         }
-    //       ],
-    //       currentTime: date.toLocaleDateString()
-    //     })
-    //     common.gps2baidu(res.latitude, res.longitude, (res1) => {
-    //       console.log(res1)
-    //     })
-
-    //   }
-    // })
     var token = wx.getStorageSync('userInfo').token
     wx.request({
       url: common.base_url + 'app/attendance/sign',
