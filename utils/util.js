@@ -43,9 +43,9 @@ function gps2baidu (lat, long, callback) {
 }
 
 function readDeps (orgTree, depList) {
-  depList.push(orgTree.name)
+  depList.push(orgTree)
   if(!orgTree.childNodes){
-    depList.push(orgTree.name)
+    depList.push(orgTree)
     return
   }
   orgTree.childNodes.forEach((v) => {
@@ -53,6 +53,7 @@ function readDeps (orgTree, depList) {
   })
   return depList
 }
+
 var base_url = 'http://192.168.7.83:8080/hrcloudj/'
 // var base_url = 'https://hr.yigewang.com.cn/'
 

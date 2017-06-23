@@ -1,5 +1,4 @@
 <view class="label-2" wx:for="{{depList}}">
-      <radio id="{{item.COMPANY_CODE}}" value="{{[item.COMPANY_CODE, item.ID]}}"></radio>
-      <label class="label-2__text" for="{{item.COMPANY_NAME}}"><text>{{item.COMPANY_NAME}}</text></label>
+      <label class="label-2__text" for="{{item.name}}"><text>{{item.name}}</text></label>
 </view>
 <button class="login_btn" type="primary" bindtap="showDep">登录</button>
