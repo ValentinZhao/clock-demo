@@ -2,14 +2,10 @@
   "pages": [
     "pages/login/login",
     "pages/index/index",
-    
     "pages/selectCompany/selectCompany",
-    
-    
-    
     "pages/logs/logs",
-    "pages/details/details"
-    
+    "pages/details/details",
+    "pages/contacts/contacts"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,6 +20,12 @@
         "text": "欢迎",
         "iconPath": "pages/images/tabBar/check.png",
         "selectedIconPath": "pages/images/tabBar/check-HL.png"
+      },
+      {
+        "pagePath": "pages/contacts/contacts",
+        "text": "通讯录",
+        "iconPath": "pages/images/tabBar/contact.png",
+        "selectedIconPath": "pages/images/tabBar/contact-HL.png"
       },
       {
         "pagePath": "pages/details/details",
