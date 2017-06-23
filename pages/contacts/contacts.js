@@ -2,7 +2,7 @@ var common = require('../../utils/util.js')
 Page({
 
   data: {
-    firstDepList: [],
+    depList: [],
     statusCode: ''
   },
   onLoad: function (options) {
@@ -19,9 +19,10 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
+        var a = []
         console.log(res)
         that.setData({
-          firstDepList: res.data.orgTree.childNodes,
+          depList: common.readDeps(res.data.orgTree, a),
           statusCode: res.statusCode
         })
       },
@@ -29,5 +30,9 @@ Page({
 
       }
     })
+  },
+  showDep: function() {
+    console.log(this.data.depList)
+    console.log(this.data.statusCode)
   }
 })

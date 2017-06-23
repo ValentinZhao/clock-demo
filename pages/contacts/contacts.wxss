@@ -1,1 +1,12 @@
-/* pages/contacts/contacts.wxss */
+.label-1, .label-2{
+    margin-bottom: 15px;
+}
+.label-1__text, .label-2__text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.login_btn {
+  margin: 0 auto;
+  width: 90%;
+}
