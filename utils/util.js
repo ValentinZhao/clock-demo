@@ -41,21 +41,33 @@ function gps2baidu (lat, long, callback) {
     }
   })
 }
-
+/**
+ * 递归读取orgTree
+ */
+var recurLevel = 0
 function readDeps (orgTree, depList) {
-  depList.push(orgTree)
-  if(!orgTree.childNodes){
+  recurLevel++
+  if(orgTree.childNodes.length == 0){
+    for (let i = 0; i < recurLevel; i++) {
+      orgTree.name = '->' + orgTree.name //根据递归等级塞箭头到名字前面实现缩进效果
+    }
     depList.push(orgTree)
+    recurLevel--
     return
   }
+  for(let i = 0; i < recurLevel; i++){
+    orgTree.name = '->' + orgTree.name //根据递归等级箭头到名字前面实现缩进效果
+  }
+  depList.push(orgTree)
   orgTree.childNodes.forEach((v) => {
     readDeps(v, depList)
   })
+  recurLevel-- // 遍历结束相当于该层读完应退出一层
   return depList
 }
 
-var base_url = 'http://192.168.7.83:8080/hrcloudj/'
-// var base_url = 'https://hr.yigewang.com.cn/'
+// var base_url = 'http://192.168.7.83:8080/hrcloudj/'
+var base_url = 'https://hr.yigewang.com.cn/'
 
 
 module.exports = {
