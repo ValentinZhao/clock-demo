@@ -5,7 +5,8 @@
     "pages/selectCompany/selectCompany",
     "pages/logs/logs",
     "pages/details/details",
-    "pages/contacts/contacts"
+    "pages/contacts/contacts",
+    "pages/contactsDetail/contactsDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

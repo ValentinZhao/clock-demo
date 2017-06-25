@@ -1,4 +1,4 @@
 <view class="label-2" wx:for="{{depList}}">
-      <label class="label-2__text" for="{{item.name}}"><text>{{item.name}}</text></label>
+      <label class="label-2__text" bindtap="listStaff" data-list="{{item}}"><text>{{item.name}}</text></label>
 </view>
 <button class="login_btn" type="primary" bindtap="showDep">登录</button>

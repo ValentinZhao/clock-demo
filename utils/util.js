@@ -66,14 +66,27 @@ function readDeps (orgTree, depList) {
   return depList
 }
 
+function readDepsNeatly(orgTree, depList) {
+  if (orgTree.childNodes.length == 0) {
+    depList.push(orgTree)
+    return
+  }
+  depList.push(orgTree)
+  orgTree.childNodes.forEach((v) => {
+    readDeps(v, depList)
+  })
+  return depList
+}
+
 // var base_url = 'http://192.168.7.83:8080/hrcloudj/'
 var base_url = 'https://hr.yigewang.com.cn/'
 
 
 module.exports = {
-  formatTime: formatTime,
-  base_url: base_url,
-  json2Form: json2Form,
-  gps2baidu: gps2baidu,
-  readDeps: readDeps
+  formatTime,
+  base_url,
+  json2Form,
+  gps2baidu,
+  readDeps,
+  readDepsNeatly
 }
