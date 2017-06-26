@@ -1,0 +1,46 @@
+.input-wrapper {
+  margin: 0 auto;
+  width: 90%;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+#signup_psw {
+  border-top-width: 1px;
+  border-top-color: grey;
+  border-top-style: solid;
+  padding: 10px;
+}
+
+#signup_usr {
+  padding: 10px;
+}
+
+#signup_code {
+  border-top-width: 1px;
+  border-top-color: grey;
+  border-top-style: solid;
+  padding: 10px;
+}
+
+#btn_getcode {
+  display: inline-block;
+  height: 40px;
+}
+
+#input_code {
+  display: inline-block
+}
+
+.signup_btn {
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.warning {
+  margin: 0 auto;
+  width: 70%;
+  padding-top: 10px;
+  font-size: 13px;
+}

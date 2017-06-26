@@ -3,6 +3,7 @@ var common = require('../../utils/util.js')
 Page({
   userLogout: () => {
     wx.removeStorageSync('userInfo')
+    wx.removeStorageSync('persons')
     wx.redirectTo({
       url: '../login/login',
       success: (res) => {

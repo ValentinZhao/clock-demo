@@ -25,7 +25,7 @@ Page({
       password: e.detail.value
     })
   },
-  userLogin: function () {
+  userLogin: function (){
     var username = this.data.userName
     var password = this.data.password
     var temp = ['../../utils/avatar.jpg']
@@ -92,6 +92,11 @@ Page({
         wx.hideNavigationBarLoading()
         return
       }
+    })
+  },
+  userSignup: function (){
+    wx.navigateTo({
+      url: '../signup/signup'
     })
   }
   })

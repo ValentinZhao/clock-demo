@@ -9,11 +9,11 @@
   border-top-width: 1px;
   border-top-color: grey;
   border-top-style: solid;
-  padding: 6px;
+  padding: 10px;
 }
 
 #login_usr {
-  padding: 6px;
+  padding: 10px;
 }
 
 .login_btn {

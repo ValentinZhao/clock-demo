@@ -1,17 +1,20 @@
 {
   "pages": [
+    
     "pages/login/login",
+    "pages/signup/signup",
     "pages/index/index",
     "pages/selectCompany/selectCompany",
     "pages/logs/logs",
     "pages/details/details",
     "pages/contacts/contacts",
     "pages/contactsDetail/contactsDetail"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "一格网",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
