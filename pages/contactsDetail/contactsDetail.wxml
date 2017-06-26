@@ -1,2 +1,3 @@
-<!--pages/contactsDetail/contactsDetail.wxml-->
-<text>pages/contactsDetail/contactsDetail.wxml</text>
+<view class="label-2" wx:for="{{nameList}}">
+      <label class="label-2__text" data-list="{{item}}"><text>{{item}}</text></label>
+</view>

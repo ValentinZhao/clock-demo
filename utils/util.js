@@ -41,6 +41,7 @@ function gps2baidu (lat, long, callback) {
     }
   })
 }
+
 /**
  * 递归读取orgTree
  */
@@ -68,10 +69,10 @@ function readDeps (orgTree, depList) {
 
 function readDepsNeatly(orgTree, depList) {
   if (orgTree.childNodes.length == 0) {
-    depList.push(orgTree)
+    depList.push(orgTree.name)
     return
   }
-  depList.push(orgTree)
+  depList.push(orgTree.name)
   orgTree.childNodes.forEach((v) => {
     readDeps(v, depList)
   })

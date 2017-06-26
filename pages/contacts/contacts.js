@@ -30,6 +30,7 @@ Page({
           peopleList: res.data.persons,
           statusCode: res.statusCode
         })
+        wx.setStorageSync('persons', res.data.persons)
       },
       fail: function(res) {
         wx.hideLoading()
@@ -48,15 +49,15 @@ Page({
     console.log(res)
     var reg_depName = new RegExp('(\-\>)+')
     var depName = res.currentTarget.dataset.list.name.replace(reg_depName, '')
+    var depStaff = []
     // console.log(depName)
     //部门名字前面有标志的一个字符串并非部门名字本身，用正则解析之后的才是标准部门名
     var tempDepName = res.currentTarget.dataset.list.name 
     this.data.depList.forEach((v) => {
       if (v.name == tempDepName){
-        var depStaff = []
-        depStaff = common.readDepsNeatly(v, depStaff)
+        common.readDepsNeatly(v, depStaff)
         wx.navigateTo({
-          url: '../contactsDetail/contactsDetail?stafflist=' + depStaff
+          url: '../contactsDetail/contactsDetail?depname=' + depName
         })
       }
     })
