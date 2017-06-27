@@ -67,6 +67,9 @@ Page({
         wx.hideNavigationBarLoading()
         if (res.data.ok) {
           console.log(res)
+          wx.navigateBack({
+            delta: 1
+          })
         } else {
           wx.showToast({
             title: res.data.message,
@@ -106,14 +109,23 @@ Page({
         json: JSON.stringify({
           'mobileNo': username,
           'smsType': 'regist',
-          'type': ''
+          'type': 'regist'
         })
       }),
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log(res)
+        if (res.data.ok) {
+          console.log(res)
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            image: '../images/err.jpg',
+            duration: 2000
+          })
+          return
+        }
         wx.hideNavigationBarLoading()
       },
       fail: (res) => {

@@ -83,7 +83,7 @@ Page({
       },
       fail: (res) => {
         wx.showToast({
-          title: res.data.message,
+          title: res.errMsg,
           image: '../images/err.jpg',
           duration: 2000
         })

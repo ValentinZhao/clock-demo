@@ -39,6 +39,7 @@
 }
 
 .warning {
+  padding-left: 17px;
   margin: 0 auto;
   width: 70%;
   padding-top: 10px;
