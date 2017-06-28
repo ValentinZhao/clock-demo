@@ -4,7 +4,7 @@
     </view>
     <view class="username" id="signup_code">
       <input type="number" placeholder="验证码" bindinput="bindVerifyCode" id="input_code"/>
-      <button id="btn_getcode" bindtap="getVerifyCode">获取验证码</button>
+      <button id="btn_getcode" bindtap="getVerifyCode" type="warn">获取验证码</button>
     </view>
     <view class="password">
       <input type="password" placeholder="设置登录密码" bindinput="bindInputPsw" id="signup_psw"/>

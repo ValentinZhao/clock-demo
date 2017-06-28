@@ -8,9 +8,13 @@ Page({
   },
   onLoad: function (options) {
     var that = this
-    wx.showLoading({
-      title: '正在获取通讯录'
-    })
+    if(wx.showLoading){
+      wx.showLoading({
+        title: '正在获取通讯录'
+      })
+    } else {
+      wx.showNavigationBarLoading()
+    }
     wx.request({
       url: common.base_url + 'app/employee/contactBooks',
       method: 'POST',
@@ -23,8 +27,19 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
-        wx.hideLoading()
+        if (wx.hideLoading){
+          wx.hideLoading()
+        } else {
+          wx.hideNavigationBarLoading()
+        }
         console.log(res)
+        if(!res.data.ok){
+          wx.showToast({
+            title: res.data.message,
+            image: '../images/err.jpg',
+            duration: 2000
+          })
+        }
         that.setData({
           depList: common.readDeps(res.data.orgTree, that.data.depList),
           peopleList: res.data.persons,
@@ -33,7 +48,11 @@ Page({
         wx.setStorageSync('persons', res.data.persons)
       },
       fail: function(res) {
-        wx.hideLoading()
+        if (wx.hideLoading) {
+          wx.hideLoading()
+        } else {
+          wx.hideNavigationBarLoading()
+        }
         wx.showToast({
           title: res.errMsg,
           image: '../images/err.jpg',

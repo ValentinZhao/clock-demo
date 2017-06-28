@@ -25,7 +25,7 @@
 
 #btn_getcode {
   display: inline-block;
-  height: 40px;
+  height: 43px;
 }
 
 #input_code {
