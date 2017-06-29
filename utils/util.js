@@ -50,14 +50,24 @@ function readDeps (orgTree, depList) {
   recurLevel++
   if(orgTree.childNodes.length == 0){
     for (let i = 0; i < recurLevel; i++) {
-      orgTree.name = '->' + orgTree.name //根据递归等级塞箭头到名字前面实现缩进效果
+      orgTree.name = '　' + orgTree.name //根据递归等级塞箭头到名字前面实现缩进效果
+      if (i == recurLevel - 1) {
+        let tabs = orgTree.name.substring(0, recurLevel - 1)
+        let name = orgTree.name.substring(recurLevel)
+        orgTree.name = tabs + '■ ' + name
+      }
     }
     depList.push(orgTree)
     recurLevel--
     return
   }
   for(let i = 0; i < recurLevel; i++){
-    orgTree.name = '->' + orgTree.name //根据递归等级箭头到名字前面实现缩进效果
+    orgTree.name = '　' + orgTree.name //根据递归等级箭头到名字前面实现缩进效果
+    if (i == recurLevel - 1) {
+      let tabs = orgTree.name.substring(0, recurLevel - 1)
+      let name = orgTree.name.substring(recurLevel)
+      orgTree.name = tabs + '■ ' + name
+    }
   }
   depList.push(orgTree)
   orgTree.childNodes.forEach((v) => {

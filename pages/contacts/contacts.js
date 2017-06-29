@@ -61,17 +61,18 @@ Page({
       }
     })
   },
-  showDep: function() {
-    console.log(this.data.depList)
-  },
   listStaff: function(res) {
     console.log(res)
-    var reg_depName = new RegExp('(\-\>)+')
-    var depName = res.currentTarget.dataset.list.name.replace(reg_depName, '')
-    var depStaff = []
-    // console.log(depName)
     //部门名字前面有标志的一个字符串并非部门名字本身，用正则解析之后的才是标准部门名
     var tempDepName = res.currentTarget.dataset.list.name 
+    var reg = new RegExp('[\u4E00-\u9FA5]+')
+    // var depName = res.currentTarget.dataset.list.name.replace(reg, '')
+    var depName = tempDepName
+    while(!reg.test(depName)){
+      depName = depName.substring(1)
+    }
+    var depStaff = []
+    // console.log(depName)
     this.data.depList.forEach((v) => {
       if (v.name == tempDepName){
         common.readDepsNeatly(v, depStaff)
