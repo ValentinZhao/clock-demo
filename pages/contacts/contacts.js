@@ -67,17 +67,16 @@ Page({
     var tempDepName = res.currentTarget.dataset.list.name 
     var reg = new RegExp('[\u4E00-\u9FA5]+')
     // var depName = res.currentTarget.dataset.list.name.replace(reg, '')
-    var depName = tempDepName
-    while(!reg.test(depName)){
-      depName = depName.substring(1)
+    var depName = reg.exec(tempDepName)
+    while(!reg.test(depName[0])){
+      depName[0] = depName[0].substring(1)
     }
     var depStaff = []
-    // console.log(depName)
     this.data.depList.forEach((v) => {
       if (v.name == tempDepName){
         common.readDepsNeatly(v, depStaff)
         wx.navigateTo({
-          url: '../contactsDetail/contactsDetail?depname=' + depName
+          url: '../contactsDetail/contactsDetail?depname=' + depName[0]
         })
       }
     })
