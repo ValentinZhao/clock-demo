@@ -1,0 +1,32 @@
+.avatarbar {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.username {
+  margin-bottom: 10px;
+  margin-right: 80px;
+  margin-top: 70px;
+  margin-left: 120px;
+}
+
+.code {
+  margin-left: 120px;
+}
+
+.perInfoWrapper {
+  width: 90%;
+  margin-top: 60px;
+}
+
+.index {
+  display: inline-block;
+  margin-left: 70px;
+  margin-bottom: 15px;
+}
+
+.detail {
+  display: inline-block;
+  margin-left: 30px;
+}

@@ -68,9 +68,6 @@ Page({
     var reg = new RegExp('[\u4E00-\u9FA5]+')
     // var depName = res.currentTarget.dataset.list.name.replace(reg, '')
     var depName = reg.exec(tempDepName)
-    while(!reg.test(depName[0])){
-      depName[0] = depName[0].substring(1)
-    }
     var depStaff = []
     this.data.depList.forEach((v) => {
       if (v.name == tempDepName){
