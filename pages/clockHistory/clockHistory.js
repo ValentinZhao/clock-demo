@@ -17,6 +17,7 @@ Page({
     this.setData({
       date: formattedDate
     })
+    this.requestClockHistory(formattedDate)
   },
   bindDateChange: function (e) {
     console.log(e)

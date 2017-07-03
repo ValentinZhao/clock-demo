@@ -6,8 +6,10 @@
     <button type="primary" class="btn_sel_date">选择日期</button>
   </picker>
 </view>
-  <view wx:for="{{clockTimes}}">
-    <text>{{item.timeNo item.range}}</text>
-    <text>打卡地址：{{item.firstAddress}}</text>
-    <text>打卡时间：{{item.firstSign}}</text>
+  <view class="clockInfo" wx:for="{{clockTimes}}">
+    <text class="title">{{item.timeNo}} {{item.range}}</text>
+    <text class="time">签到：{{item.firstSign}}</text>
+    <text class="addr">打卡地址：{{item.firstAddress}}</text>
+    <text class="time">签退：{{item.lastSign}}</text>
+    <text class="addr">打卡地址：{{item.lastAddress}}</text>
   </view>

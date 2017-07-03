@@ -8,3 +8,20 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.title {
+  display: block;
+  color: #22a1e0;
+}
+
+.addr {
+  display: block;
+}
+
+.time {
+  display: block;
+}
+
+.clockInfo {
+  margin: 30px;
+}
