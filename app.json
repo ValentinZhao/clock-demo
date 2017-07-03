@@ -2,6 +2,7 @@
   "pages": [
     
     "pages/login/login",
+    "pages/clockHistory/clockHistory",
     "pages/signup/signup",
     "pages/index/index",
     "pages/selectCompany/selectCompany",

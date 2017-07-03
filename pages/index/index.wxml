@@ -8,6 +8,9 @@
   <view class="my-btn">
     <button class="welcome-btn" type="primary" bindtap="clockIn">打卡</button>
   </view>
+  <view class="clockHistoryWrapper">
+    <text class="clockHistory" bindtap="showClockHistory">打卡记录</text>
+  </view>
 </view>
 <!--<view class="usermotto">
     <text class="user-motto">打卡位置是： {{myLocation.longitude}}, {{myLocation.latitude}}</text>

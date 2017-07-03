@@ -1,0 +1,10 @@
+.picker {
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.btn_sel_date {
+  width: 80%;
+  margin: 0 auto;
+}

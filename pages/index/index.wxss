@@ -25,6 +25,18 @@
   margin: 0 auto;
   padding-top: 20px;
 }
+
+.clockHistoryWrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.clockHistory {
+  color: #22a1e0;
+  text-decoration: underline;
+}
 .map_container{ 
     height: 300px; 
     width: 100%; 

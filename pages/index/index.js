@@ -128,6 +128,11 @@ Page({
       }
     })
   },
+  showClockHistory: function () {
+    wx.navigateTo({
+      url: '../clockHistory/clockHistory'
+    })
+  },
   point2pointDistance: function(){
     function OD(a, b, c) {
       while (a > c) a -= c - b;
