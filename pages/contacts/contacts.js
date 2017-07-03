@@ -65,15 +65,13 @@ Page({
     console.log(res)
     //部门名字前面有标志的一个字符串并非部门名字本身，用正则解析之后的才是标准部门名
     var tempDepName = res.currentTarget.dataset.list.name 
-    var reg = new RegExp('[\u4E00-\u9FA5]+')
-    // var depName = res.currentTarget.dataset.list.name.replace(reg, '')
-    var depName = reg.exec(tempDepName)
+    var depName = tempDepName.replace(/\u3000+■\s/g, '')
     var depStaff = []
     this.data.depList.forEach((v) => {
       if (v.name == tempDepName){
         common.readDepsNeatly(v, depStaff)
         wx.navigateTo({
-          url: '../contactsDetail/contactsDetail?depname=' + depName[0]
+          url: '../contactsDetail/contactsDetail?depname=' + depName
         })
       }
     })

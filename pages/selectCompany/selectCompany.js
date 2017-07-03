@@ -36,6 +36,7 @@ Page({
     var companyInfo = this.data.choosenCompanyInfo.split(',')
     var username = this.data.username
     var password = this.data.password
+    wx.showNavigationBarLoading()
     wx.request({
       url: common.base_url + 'init/app/login',
       method: 'POST',
@@ -52,6 +53,7 @@ Page({
       },
       success: (res) => {
         console.log(res)
+        wx.hideNavigationBarLoading()
         if(res.data.ok){
           if (!wx.getStorageSync('userInfo')){
             wx.setStorageSync('userInfo', res.data)
@@ -68,6 +70,7 @@ Page({
         }
       },
       fail: (res) => {
+        wx.hideNavigationBarLoading()
         wx.showToast({
           title: res.data.message,
           image: '../images/err.jpg',
