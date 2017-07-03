@@ -4,7 +4,7 @@
 </view>
 <view class="perInfoWrapper">
   <view><view class="index">部门</view><view class="detail">{{perInfo.ORG_NAME}}</view></view>
-  <view><view class="index">职位</view><view class="detail">{{hasRole ? perInfo.ROLE_NAME : placeholder}}</view></view>
+  <view><view class="index">职位</view><view class="detail">{{hasRole ? perInfo.POSITION_NAME : placeholder}}</view></view>
   <view><view class="index">手机</view><view class="detail">{{hasPhone ? perInfo.MOBILE_NO : placeholder}}</view></view>
   <view><view class="index">邮箱</view><view class="detail">{{hasEmail ? perInfo.EMAIL : placeholder}}</view></view>
 </view>

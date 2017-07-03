@@ -19,7 +19,7 @@ Page({
     var hasRole = false
     var hasPhone = false
     var hasEmail = false
-    if (perInfo.ROLE_NAME){
+    if (perInfo.POSITION_NAME){
       hasRole = true
     }
     if(perInfo.EMAIL){
