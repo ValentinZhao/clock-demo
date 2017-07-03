@@ -38,8 +38,9 @@ Page({
         }
       }
     })
+    selected.HEAD_PIC = ''
     wx.navigateTo({
-      url: '../profileInContact/profileInContact?perinfo=' + JSON.stringify(selected)
+      url: '../profileInContact/profileInContact?perid=' + JSON.stringify(selected.PER_ID)
     })
   }
 })

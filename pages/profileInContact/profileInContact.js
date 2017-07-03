@@ -7,7 +7,15 @@ Page({
     placeholder: '暂无信息'
   },
   onLoad: function (options) {
-    var perInfo = JSON.parse(options.perinfo)
+    var perid = options.perid.match(/\w+/)
+    var persons = wx.getStorageSync('persons')
+    var perInfo = {}
+    persons.forEach((v) => {
+      if(v.PER_ID == perid){
+        perInfo = v;
+        return
+      }
+    })
     var hasRole = false
     var hasPhone = false
     var hasEmail = false

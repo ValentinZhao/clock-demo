@@ -89,8 +89,8 @@ function readDepsNeatly(orgTree, depList) {
   return depList
 }
 
-var base_url = 'http://192.168.7.83:8080/hrcloudj/'
-// var base_url = 'https://hr.yigewang.com.cn/'
+// var base_url = 'http://192.168.7.83:8080/hrcloudj/'
+var base_url = 'https://hr.yigewang.com.cn/'
 
 
 module.exports = {

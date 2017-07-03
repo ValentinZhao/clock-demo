@@ -51,6 +51,13 @@ Page({
     var that = this;
     var date = new Date()
     var token = wx.getStorageSync('userInfo').token
+    if (wx.showLoading) {
+      wx.showLoading({
+        title: '正在打卡'
+      })
+    } else {
+      wx.showNavigationBarLoading()
+    }
     wx.request({
       url: common.base_url + 'app/attendance/sign',
       method: 'POST',
@@ -67,6 +74,11 @@ Page({
       },
       success: (res) => {
         console.log(res)
+        if (wx.hideLoading) {
+          wx.hideLoading()
+        } else {
+          wx.hideNavigationBarLoading()
+        }
         if (res.data.ok) {
           wx.showToast({
             title: res.data.message,
@@ -82,6 +94,11 @@ Page({
         }
       },
       fail: (res) => {
+        if (wx.hideLoading) {
+          wx.hideLoading()
+        } else {
+          wx.hideNavigationBarLoading()
+        }
         wx.showToast({
           title: res.errMsg,
           image: '../images/err.jpg',
