@@ -80,7 +80,6 @@ Page({
           wx.hideNavigationBarLoading()
         }
         if (res.data.ok) {
-          console.log('success!!!!!')
           wx.showToast({
             title: '打卡成功：\n' + res.data.attendanceDate + '\n' + res.data.time,
             image: 'success',

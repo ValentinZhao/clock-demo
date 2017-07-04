@@ -1,4 +1,4 @@
-<view class="container">
+<view class="mContainer">
   <view class="welcomeTitle">欢迎你，{{companyList[0].USER_NAME}}</view>
   <radio-group class="group" bindchange="radioChange">
   <view class="title" id="companyTitle">请选择要登录的公司</view>

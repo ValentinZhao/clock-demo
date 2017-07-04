@@ -34,5 +34,11 @@ Page({
       hasPhone: hasPhone,
       hasEmail: hasEmail
     })
+  },
+  makeCall: function() {
+    var num = this.data.perInfo.MOBILE_NO
+    wx.makePhoneCall({
+      phoneNumber: num
+    })
   }
 })

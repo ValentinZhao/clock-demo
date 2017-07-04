@@ -21,5 +21,10 @@ Page({
         })
       }
     })
+  },
+  makeCall: () => {
+    wx.makePhoneCall({
+      phoneNumber: '400-991-0601'
+    })
   }
 })

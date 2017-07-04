@@ -73,3 +73,11 @@
     text-align: center;
     margin-top: 15px;
 }
+
+.mContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}

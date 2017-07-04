@@ -1,3 +1,5 @@
-<view class="container">
-  <button class="btn_logout" type="warn" bindtap="userLogout">退出登录</button>
+<view class="viewWrapper">
+  <view class="version"><text>当前版本：v1.0.0</text></view>
+  <view class="hotline" bindtap="makeCall">联系客服</view>
+  <view class="btn_logout" bindtap="userLogout">退出登录</view>
 </view>

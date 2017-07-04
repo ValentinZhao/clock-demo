@@ -1,5 +1,4 @@
 .avatarbar {
-  width: 90%;
   margin: 0 auto;
   padding-top: 20px;
 }
@@ -8,11 +7,11 @@
   margin-bottom: 10px;
   margin-right: 80px;
   margin-top: 70px;
-  margin-left: 120px;
+  margin-left: 40px;
 }
 
 .code {
-  margin-left: 120px;
+  margin-left: 40px;
 }
 
 .perInfoWrapper {

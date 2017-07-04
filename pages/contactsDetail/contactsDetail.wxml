@@ -1,3 +1,5 @@
-<view class="label-2" wx:for="{{nameList}}">
-      <label class="label-2__text" bindtap="showProfile" data-perid="{{item.PER_ID}}" data-commonid="{{item.COMMON_USER_ID}}"><text>{{item.USER_NAME}}</text></label>
+<view style="padding-top: 20px;">
+  <view class="label-2" wx:for="{{nameList}}">
+        <label class="label-2__text" bindtap="showProfile" data-perid="{{item.PER_ID}}" data-commonid="{{item.COMMON_USER_ID}}"><text>{{item.USER_NAME}}</text></label>
+  </view>
 </view>

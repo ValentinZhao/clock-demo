@@ -1,12 +1,21 @@
 .label-1, .label-2{
     margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom-color: #D3D3D3;
+    border-bottom-style: solid;
+    border-bottom-width: 0.5px;
 }
 .label-1__text, .label-2__text {
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
+    width: 90%;
 }
 .login_btn {
   margin: 0 auto;
   width: 90%;
+}
+
+.viewWrapper {
+  margin-top: 20px;
 }
