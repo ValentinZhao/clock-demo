@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/clockHistory/clockHistory",
-    "pages/login/login",
     
+    "pages/login/login",
+    "pages/clockHistory/clockHistory",
     "pages/signup/signup",
     "pages/index/index",
     "pages/selectCompany/selectCompany",

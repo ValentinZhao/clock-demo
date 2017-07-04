@@ -5,7 +5,10 @@ Page({
     clockTimes: []
   },
   onLoad: function (options) {
-    var date = new Date().toLocaleDateString().replace(/\//g, '-')
+    // var date = new Date().toLocaleDateString().replace(/\//g, '-')
+    var mDate = new Date()
+    var date = mDate.getFullYear() + '-' + (mDate.getMonth() + 1) + '-' + mDate.getDate()
+    console.log('DATE = ' + date)
     var dateArray = date.split('-')
     if(parseInt(dateArray[1]) < 10) {
       dateArray[1] = '0' + dateArray[1]

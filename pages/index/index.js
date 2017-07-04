@@ -75,13 +75,14 @@ Page({
       success: (res) => {
         console.log(res)
         if (wx.hideLoading) {
-          wx.hideLoading()
+          // wx.hideLoading()
         } else {
           wx.hideNavigationBarLoading()
         }
         if (res.data.ok) {
+          console.log('success!!!!!')
           wx.showToast({
-            title: res.data.message,
+            title: '打卡成功：\n' + res.data.attendanceDate + '\n' + res.data.time,
             image: 'success',
             duration: 2000
           })
