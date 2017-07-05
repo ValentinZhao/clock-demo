@@ -45,7 +45,8 @@ Page({
       data: common.json2Form({
         json: JSON.stringify({
           'password': password,
-          'userId': username
+          'userId': username,
+          'wx': common.wx_version
         })}),
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -53,7 +54,7 @@ Page({
       success: function (res) {
         console.log(res)
         if(res.data.ok){
-          if (res.data.companyList) { // 若该登陆人有多个公司信息，则进入公司选择页面
+          if (res.data.companyList && res.data.companyList.length > 0) { // 若该登陆人有多个公司信息，则进入公司选择页面
             var mUrl = '../selectCompany/selectCompany?companyList='
             var companyList = res.data.companyList
             companyList.forEach((v, i, a) => {
@@ -63,6 +64,13 @@ Page({
             mUrl += '&userId=' + username + '&password=' + password
             wx.navigateTo({
               url: mUrl
+            })
+            return
+          } else if (res.data.companyList && res.data.companyList.length == 0){
+            wx.showToast({
+              title: '您暂未加入任何公司,请加入后重试',
+              image: '../images/err.jpg',
+              duration: 2000
             })
             return
           }

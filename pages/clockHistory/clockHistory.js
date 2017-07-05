@@ -37,7 +37,8 @@ Page({
       data: common.json2Form({
         json: JSON.stringify({
           'attendanceDate': date,
-          'token': wx.getStorageSync('userInfo').token
+          'token': wx.getStorageSync('userInfo').token,
+          'wx': common.wx_version
         })
       }),
       header: {

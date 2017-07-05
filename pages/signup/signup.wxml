@@ -13,4 +13,3 @@
 <view class="signup_btn">
   <button class="btn_signup" type="primary" bindtap="userSignup">注册</button>
 </view>
-<view class="warning"><text>点击“注册”表示同意《一格网服务协议》</text></view>

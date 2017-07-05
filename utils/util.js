@@ -92,6 +92,7 @@ function readDepsNeatly(orgTree, depList) {
 // var base_url = 'http://192.168.7.83:8080/hrcloudj/'
 var base_url = 'https://hr.yigewang.com.cn/'
 
+var wx_version = '1.0.0'
 
 module.exports = {
   formatTime,
@@ -99,5 +100,6 @@ module.exports = {
   json2Form,
   gps2baidu,
   readDeps,
-  readDepsNeatly
+  readDepsNeatly,
+  wx_version
 }

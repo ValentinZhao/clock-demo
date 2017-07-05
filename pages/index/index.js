@@ -8,6 +8,10 @@ Page({
       longitude: '',
       latitude: ''
     },
+    firstLocation: {
+      longitude: '',
+      latitude: ''
+    },
     currentTime: '',
     markers: [{
       iconPath: "../images/marker_red.png",
@@ -41,12 +45,6 @@ Page({
       clickable: true
     }]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   clockIn: function () {
     var that = this;
     var date = new Date()
@@ -58,56 +56,70 @@ Page({
     } else {
       wx.showNavigationBarLoading()
     }
-    wx.request({
-      url: common.base_url + 'app/attendance/sign',
-      method: 'POST',
-      data: common.json2Form({
-        json: JSON.stringify({
-          'lat': that.data.myLocation.latitude,
-          'lng': that.data.myLocation.longitude,
-          'platform': 'ios',
-          'token': token
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        that.setData({
+          myLocation: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          }
         })
-      }),
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: (res) => {
-        console.log(res)
-        if (wx.hideLoading) {
-          // wx.hideLoading()
-        } else {
-          wx.hideNavigationBarLoading()
-        }
-        if (res.data.ok) {
-          wx.showToast({
-            title: '打卡成功：\n' + res.data.attendanceDate + '\n' + res.data.time,
-            image: 'success',
-            duration: 2000
-          })
-        } else {
-          wx.showToast({
-            title: res.data.message,
-            image: '../images/err.jpg',
-            duration: 2000
-          })
-        }
-      },
-      fail: (res) => {
-        if (wx.hideLoading) {
-          wx.hideLoading()
-        } else {
-          wx.hideNavigationBarLoading()
-        }
-        wx.showToast({
-          title: res.errMsg,
-          image: '../images/err.jpg',
-          duration: 2000
+        wx.request({
+          url: common.base_url + 'app/attendance/sign',
+          method: 'POST',
+          data: common.json2Form({
+            json: JSON.stringify({
+              'lat': that.data.myLocation.latitude,
+              'lng': that.data.myLocation.longitude,
+              'platform': 'ios',
+              'token': token,
+              'wx': common.wx_version
+            })
+          }),
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success: (res) => {
+            console.log(res)
+            if (wx.hideLoading) {
+              // wx.hideLoading()
+            } else {
+              wx.hideNavigationBarLoading()
+            }
+            if (res.data.ok) {
+              wx.showToast({
+                title: '打卡成功：\n' + res.data.attendanceDate + '\n' + res.data.time,
+                image: 'success',
+                duration: 2000
+              })
+            } else {
+              wx.showToast({
+                title: res.data.message,
+                image: '../images/err.jpg',
+                duration: 2000
+              })
+            }
+          },
+          fail: (res) => {
+            if (wx.hideLoading) {
+              wx.hideLoading()
+            } else {
+              wx.hideNavigationBarLoading()
+            }
+            wx.showToast({
+              title: res.errMsg,
+              image: '../images/err.jpg',
+              duration: 2000
+            })
+          }
         })
       }
     })
+    
   },
   onLoad: function () {
+    this.mapCtx = wx.createMapContext('clockMap');
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
@@ -120,6 +132,10 @@ Page({
       type: 'wgs84',
       success: function (res) {
         that.setData({
+          firstLocation: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          },
           myLocation: {
             longitude: res.longitude,
             latitude: res.latitude
@@ -127,6 +143,12 @@ Page({
         })
       }
     })
+  },
+  moveToLocation: function () {
+    this.mapCtx.moveToLocation()
+  },
+  regionchange: function () {
+    setTimeout(this.moveToLocation, 500)
   },
   showClockHistory: function () {
     wx.navigateTo({

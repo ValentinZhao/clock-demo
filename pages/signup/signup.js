@@ -57,7 +57,8 @@ Page({
         json: JSON.stringify({
           'mobileNo': username,
           'password': password,
-          'verifcatCode': verifyCode
+          'verifcatCode': verifyCode,
+          'wx': common.wx_version
         })
       }),
       header: {
@@ -109,7 +110,8 @@ Page({
         json: JSON.stringify({
           'mobileNo': username,
           'smsType': 'regist',
-          'type': 'regist'
+          'type': 'regist',
+          'wx': common.wx_version
         })
       }),
       header: {

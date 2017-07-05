@@ -33,6 +33,14 @@ Page({
     })
   },
   userLogin: function () {
+    if (this.data.choosenCompanyInfo == "" || this.data.choosenCompanyInfo == null){
+      wx.showToast({
+        title: '请选择一个公司',
+        image: '../images/err.jpg',
+        duration: 2000
+      })
+      return
+    }
     var companyInfo = this.data.choosenCompanyInfo.split(',')
     var username = this.data.username
     var password = this.data.password
@@ -45,7 +53,8 @@ Page({
           'userId': username,
           'password': password,
           'companyCode': companyInfo[0],
-          'selectUser': companyInfo[1]
+          'selectUser': companyInfo[1],
+          'wx': common.wx_version
         })
       }),
       header: {
